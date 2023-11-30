@@ -36,14 +36,14 @@ export const menu = [
         },
         {
           id: 2,
-          title: "Products",
-          url: "/products",
+          title: "Books",
+          url: "/books",
           icon: InventoryIcon,
         },
         {
           id: 3,
-          title: "Orders",
-          url: "/orders",
+          title: "Authors",
+          url: "/authors",
           icon: ChecklistRtlIcon,
         },
       ],

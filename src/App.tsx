@@ -7,12 +7,12 @@ import {
 } from "react-router-dom";
 
 import { Users } from './pages/users/Users';
-import { Products } from './pages/products/Products';
+import { Books } from './pages/books/Books';
 import { Navbar } from './components/navbar/Navbar';
 import { Menu } from './components/menu/Menu';
 import { Footer } from './components/footer/Footer';
 import { Login } from './pages/login/Login';
-import { Orders } from './pages/order/Orders';
+import { Authors } from './pages/author/Authors';
 import { Profile } from './pages/profile/Profile';
 
 function App() {
@@ -47,12 +47,12 @@ const Layout = () => {
           element: <Users />
         },
         {
-          path: "/products",
-          element: <Products />
+          path: "/books",
+          element: <Books />
         },
         {
-          path: "/orders",
-          element: <Orders />
+          path: "/authors",
+          element: <Authors />
         },
         {
           path: "/profile",

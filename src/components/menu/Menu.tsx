@@ -3,6 +3,15 @@ import React from 'react';
 import { List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import "./menu.scss"
 import { menu } from "../../constants/menu";
+import styled from "@emotion/styled";
+
+const CustomListItem = styled(ListItem)({
+  color: 'white'
+})
+
+const CustomListItemIcon = styled(ListItemIcon)({
+  color: 'white'
+})
 
 export const Menu = () => {
   return (
@@ -13,12 +22,12 @@ export const Menu = () => {
           <List>
             {item.listItems.map((listItem) => (
               <Link to={listItem.url} className="listItem" key={listItem.id}>
-                <ListItem>
-                  <ListItemIcon>
+                <CustomListItem>
+                  <CustomListItemIcon>
                     {React.createElement(listItem.icon)}
-                  </ListItemIcon>
+                  </CustomListItemIcon>
                   <ListItemText primary={listItem.title} />
-                </ListItem>
+                </CustomListItem>
               </Link>
             ))}
           </List>
