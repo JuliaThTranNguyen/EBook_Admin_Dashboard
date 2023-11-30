@@ -12,8 +12,15 @@ import { Navbar } from './components/navbar/Navbar';
 import { Menu } from './components/menu/Menu';
 import { Footer } from './components/footer/Footer';
 import { Login } from './pages/login/Login';
-import { Authors } from './pages/author/Authors';
 import { Profile } from './pages/profile/Profile';
+import { Genres } from './pages/genres/Genres';
+import { BookAuthors } from './pages/book_author/BookAuthors';
+import { BookGenres } from './pages/bookGenres/BookGenres';
+import { User } from './pages/user/User';
+import { Book } from './pages/book/Book';
+import { Authors } from './pages/authors/Authors';
+import { Author } from './pages/author/Author';
+
 
 function App() {
 const Layout = () => {
@@ -47,12 +54,36 @@ const Layout = () => {
           element: <Users />
         },
         {
+          path: "/users/:id",
+          element: <User />
+        },
+        {
           path: "/books",
           element: <Books />
         },
         {
+          path: "/books/:id",
+          element: <Book />
+        },
+        {
           path: "/authors",
           element: <Authors />
+        },
+        {
+          path: "/authors/:id",
+          element: <Author />
+        },
+        {
+          path: "/genres",
+          element: <Genres />
+        },
+        {
+          path: "/books&authors",
+          element: <BookAuthors />
+        },
+        {
+          path: "/books&genres",
+          element: <BookGenres />
         },
         {
           path: "/profile",

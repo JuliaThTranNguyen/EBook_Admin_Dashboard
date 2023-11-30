@@ -1,3 +1,6 @@
+@import "../../styles/variables.scss";
+@import "../../styles/responsive.scss";
+
 .dataTable{
     .dataGrid{
       background: white;
@@ -25,4 +28,23 @@
         }
       }
     }
+
+    @include xl{
+      height: auto;
+      width: 80%;
+      }
+      @include lg{
+        height: auto;
+        width: 80%;
+      }
+      @include md {
+        height: auto;
+        width: 65%;
+      }
+      @include sm {
+        height: auto;
+        width: 40%;
+      }
   }
+
+  /*height: '70%', width: '75%'*/

@@ -39,7 +39,7 @@ export const TopBox = () => {
       {topDealUsers.map((user) => (
         <CustomPaper key={user.id}>
           <AvatarContainer>
-            <CustomAvatar alt={user.username} src={user.img} />
+            <CustomAvatar alt={user.username} src={user.image} />
           </AvatarContainer>
           <UserInfoContainer>
             <CustomTypography variant="subtitle1">{user.username}</CustomTypography>

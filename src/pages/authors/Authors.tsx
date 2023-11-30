@@ -1,47 +1,31 @@
-import React,{ useState } from 'react'
-import "./books.scss"
+import React, { useState } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 import styled from '@emotion/styled';
-import { AddData } from "../../components/addData/AddData";
 import { DataTable } from "../../components/dataTable/DataTable";
 import { GridColDef } from "@mui/x-data-grid";
-import { totalBooks } from '../../constants/books';
+import { AddData } from "../../components/addData/AddData";
+import { totalAuthors } from '../../constants/authors';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 90 },
-  { field: 'image', headerName: 'Image', width: 90,
+  { field: 'image', headerName: 'AVATAR', width: 100,
     renderCell:(params) => {
         return <img src={params.row.image || "../../assests/nouser.svg"} alt="no avatar" />
     }
 },
   {
-    field: 'isbn',
-    headerName: 'ISBN',
-    width: 100,
-    editable: true,
-    type: 'string',
-  },
-  {
-    field: 'title',
-    headerName: 'Title',
+    field: 'name',
+    headerName: 'Name',
     width: 150,
     editable: true,
     type: 'string',
   },
   {
-    field: 'status',
-    headerName: 'Status',
-    width: 110,
+    field: 'bio',
+    headerName: 'Bio',
+    width: 150,
     editable: true,
     type: 'string',
-  },
-  {
-    field: 'publishedDate',
-    headerName: 'Public Date',
-    width: 200,
-    editable: true,
-    type: 'Date',
-    valueGetter: (params) => new Date().toLocaleString(), // Set to the current date and time
   },
 ];
 
@@ -50,31 +34,30 @@ const CustomBox = styled(Box)({
 });
 
 const CustomButton = styled(Button)({
-  color: "primary",
+  color: 'primary',
   marginLeft: 15,
 });
 
-export const Books = () => {
+export const Authors = () => {
   // const handleButtonClick = () => {
   //   // TODO: Add logic for handling button click, e.g., navigating to another API 
   //   // API: /api/v1/users
   //   console.log('Button clicked!');
   // };
-
   const [open, setOpen] = useState(false)
 
   return (
-    <Box className='products'>
-      <CustomBox>
+    <Box className='authors'>
+       <CustomBox>
       <Typography variant="h4" color="white">
-        Books
+      Authors
         <CustomButton onClick={() => setOpen(true)} variant="outlined" endIcon="+">
-          Create new Book
+          Create new author
         </CustomButton>
       </Typography>
       </CustomBox>
-      <DataTable slug='books' columns={columns} rows={totalBooks}/>
-      {open && <AddData slug='books' columns={columns} setOpen={setOpen}/>}
+      <DataTable slug='authors' columns={columns} rows={totalAuthors}/>
+      {open && <AddData slug='authors' columns={columns} setOpen={setOpen}/>}
     </Box>
   )
 }
