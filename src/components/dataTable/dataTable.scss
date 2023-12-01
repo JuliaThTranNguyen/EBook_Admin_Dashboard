@@ -2,6 +2,7 @@
 @import "../../styles/responsive.scss";
 
 .dataTable{
+
     .dataGrid{
       background: white;
       padding: 20px;
@@ -29,22 +30,19 @@
       }
     }
 
+    @include xxl{
+      max-width: 850px;
+    }
     @include xl{
-      height: auto;
-      width: 80%;
-      }
-      @include lg{
-        height: auto;
-        width: 80%;
-      }
-      @include md {
-        height: auto;
-        width: 65%;
-      }
-      @include sm {
-        height: auto;
-        width: 40%;
-      }
+      max-width: 720px;
+    }
+    @include lg{
+      max-width: 500px;
+    }
+    @include md {
+      max-width: 320px;
+    }
+    @include sm {
+      max-width: 120px;
+    }
   }
-
-  /*height: '70%', width: '75%'*/

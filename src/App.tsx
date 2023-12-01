@@ -14,12 +14,15 @@ import { Footer } from './components/footer/Footer';
 import { Login } from './pages/login/Login';
 import { Profile } from './pages/profile/Profile';
 import { Genres } from './pages/genres/Genres';
-import { BookAuthors } from './pages/book_author/BookAuthors';
+import { BookAuthors } from './pages/bookAuthors/BookAuthors';
 import { BookGenres } from './pages/bookGenres/BookGenres';
-import { User } from './pages/user/User';
-import { Book } from './pages/book/Book';
+import { User } from './pages/users/User';
+import { Book } from './pages/books/Book';
 import { Authors } from './pages/authors/Authors';
-import { Author } from './pages/author/Author';
+import { Author } from './pages/authors/Author';
+import { Genre } from './pages/genres/Genre';
+import { BookAuthor } from './pages/bookAuthors/BookAuthor';
+import { BookGenre } from './pages/bookGenres/BookGenre';
 
 
 function App() {
@@ -78,12 +81,24 @@ const Layout = () => {
           element: <Genres />
         },
         {
+          path: "/genres/:id",
+          element: <Genre />
+        },
+        {
           path: "/books&authors",
           element: <BookAuthors />
         },
         {
+          path: "/books&authors/:id",
+          element: <BookAuthor />
+        },
+        {
           path: "/books&genres",
           element: <BookGenres />
+        },
+        {
+          path: "/books&genres/:id",
+          element: <BookGenre />
         },
         {
           path: "/profile",

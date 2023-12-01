@@ -3,26 +3,19 @@
 
 
 .users{
-//    max-width: $md;
-
-//         @include xl{
-//             max-width: $xl;
-//         }
-//         @include lg{
-//             max-width: 800px;
-//         }
-//         @include md {
-//             max-width: 280px;
-//         }
-//         @include sm {
-//             max-width: 300px;
-//         }
-      
+    @include xxl{
+        max-width: 910px;
+      }
+      @include xl{
+        max-width: 800px;
+      }
+      @include lg{
+        max-width: 560px;
+      }
+      @include md {
+        max-width: 380px;
+      }
+      @include sm {
+        max-width: 180px;
+      }
 }
-
-/*
-$sm: 480px;
-$md: 768px;
-$lg: 1024px;
-$xl: 1200px;
-$xxl: 1400px;*/

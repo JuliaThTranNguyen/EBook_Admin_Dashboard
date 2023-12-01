@@ -51,8 +51,8 @@ export const BookAuthors = () => {
         </CustomButton>
       </Typography>
       </CustomBox>
-      <DataTable slug='bookAuthors' columns={columns} rows={listOfBookAuthors}/>
-      {open && <AddData slug='bookAuthors' columns={columns} setOpen={setOpen}/>}
+      <DataTable slug='books&authors' columns={columns} rows={listOfBookAuthors}/>
+      {open && <AddData slug='books&authors' columns={columns} setOpen={setOpen}/>}
     </Box>
   )
 }

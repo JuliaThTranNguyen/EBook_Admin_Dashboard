@@ -51,8 +51,8 @@ export const BookGenres = () => {
         </CustomButton>
       </Typography>
       </CustomBox>
-      <DataTable slug='bookGenres' columns={columns} rows={listOfBookGenres}/>
-      {open && <AddData slug='bookGenres' columns={columns} setOpen={setOpen}/>}
+      <DataTable slug='books&genres' columns={columns} rows={listOfBookGenres}/>
+      {open && <AddData slug='books&genres' columns={columns} setOpen={setOpen}/>}
     </Box>
   )
 }

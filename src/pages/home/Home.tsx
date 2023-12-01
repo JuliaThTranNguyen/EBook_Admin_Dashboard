@@ -11,7 +11,7 @@ const MainBox = styled(Box)({
   gap: "20px",
   gridTemplateColumns: "repeat(3, 1fr)",
   gridAutoRows: "minmax(180px, auto)",
-  gridAutoFlow: "dense",
+    gridAutoFlow: "dense",
 });
 
 const Box1 = styled(Box)({
