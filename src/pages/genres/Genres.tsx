@@ -1,21 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 import styled from '@emotion/styled';
-import { DataTable } from "../../components/dataTable/DataTable";
-import { GridColDef } from "@mui/x-data-grid";
-import { AddData } from "../../components/addData/AddData";
-import { totalGenres } from '../../constants/genres';
 
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  {
-    field: 'title',
-    headerName: 'Title',
-    width: 150,
-    editable: true,
-    type: 'string',
-  },
-];
+import { DataTable } from "../../components/dataForm/displayData/DataTable";
+import useAppSelector from '../../hooks/useAppSelector';
+import useAppDispatch from '../../hooks/useAppDispatch';
+import { currentGenretotalPages, getAllGenres, setAllGenres } from '../../redux/reducers/genresReducer';
+import { Genre } from '../../types/Genre';
+import { GenreColumns } from '../../constants/genreColumns';
+import { AddOneGenre } from '../../components/dataForm/addData/AddOneGenre';
+import { currentAccessToken } from '../../redux/reducers/authReducer';
 
 const CustomBox = styled(Box)({
   marginBottom: 10,
@@ -27,12 +21,35 @@ const CustomButton = styled(Button)({
 });
 
 export const Genres = () => {
-  // const handleButtonClick = () => {
-  //   // TODO: Add logic for handling button click, e.g., navigating to another API 
-  //   // API: /api/v1/users
-  //   console.log('Button clicked!');
-  // };
+  const { genres, loading } = useAppSelector((state) => state.genre);
+  const totalGenrePages: number = useAppSelector(currentGenretotalPages) ?? 3;
+  const accessToken: string | null = useAppSelector(currentAccessToken);
+
   const [open, setOpen] = useState(false)
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const fetchGenreData = async () => {
+      let currentPage = 1;
+      let allGenres: Genre[] = [];
+
+      while (currentPage <= totalGenrePages) {
+        const result = await dispatch(getAllGenres(currentPage));
+
+        if (getAllGenres.fulfilled.match(result)) {
+          const { genres } = result.payload;
+          allGenres = [...allGenres, ...genres];
+          currentPage += 1;
+        } else {
+          break;
+        }
+      }
+
+      dispatch(setAllGenres(allGenres));
+    };
+    console.log("genre is fetching datas")
+    fetchGenreData();
+  }, [dispatch,totalGenrePages]);
 
   return (
     <Box className='authors'>
@@ -44,8 +61,10 @@ export const Genres = () => {
         </CustomButton>
       </Typography>
       </CustomBox>
-      <DataTable slug='genres' columns={columns} rows={totalGenres}/>
-      {open && <AddData slug='genres' columns={columns} setOpen={setOpen}/>}
+      {loading ? ("LOADING ... ") : (
+        <DataTable slug='genres' columns={GenreColumns} rows={genres}/>
+      )}
+      {open && <AddOneGenre slug='genres' accessToken={accessToken} columns={GenreColumns} setOpen={setOpen}/>}
     </Box>
   )
 }

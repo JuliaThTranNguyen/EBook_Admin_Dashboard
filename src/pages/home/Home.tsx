@@ -1,10 +1,9 @@
-import * as React from "react";
 import "./home.scss";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import { TopBox } from "../../components/TopBox/TopBox";
-import { UserChartBox } from "../../components/chartBox/UserChartBox";
-import { ProductChartBox } from "../../components/chartBox/ProductChartBox";
+import { AuthorBox } from "../../components/chartBox/AuthorBox";
+import { BookBox } from "../../components/chartBox/BookBox";
 
 const MainBox = styled(Box)({
   display: "grid",
@@ -37,10 +36,10 @@ export const Home = () => {
         <TopBox />
       </Box1>
       <Box2>
-        <UserChartBox />
+        <AuthorBox />
       </Box2>
       <Box2>
-        <ProductChartBox />
+        <BookBox />
       </Box2>
     </MainBox>
   );

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { topDealUsers } from '../../constants/users';
-import { Avatar, Box, Paper } from '@mui/material';
+import { Avatar, Box, Button, Paper } from '@mui/material';
 import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
 
+import useAppSelector from '../../hooks/useAppSelector';
+import { currentAccessToken, getAllUsers } from '../../redux/reducers/authReducer';
+import useAppDispatch from '../../hooks/useAppDispatch';
+import { useNavigate } from 'react-router-dom';
+
 const CustomPaper = styled(Paper)({
-  marginTop: 10,
+  marginTop: 20,
   backgroundColor: '#2f3b50',
   border: '1px solid #2f3b50',
   display: 'flex',
@@ -25,29 +29,61 @@ const UserInfoContainer = styled('div')({
   marginLeft: 15,
 });
 
+const CustomTypographyBold = styled(Typography)({
+  margin: 5,
+  color: 'white',
+  fontWeight: 'bold',
+});
+
 const CustomTypography = styled(Typography)({
   margin: 5,
   color: 'white',
 });
 
-const CustomAvatar = styled(Avatar)({});
+const CustomButton = styled(Button)({
+  color: 'primary',
+  marginTop: 10,
+});
 
 export const TopBox = () => {
+  const { allUserData, loading } = useAppSelector((state) => state.auth);
+  const accessToken: string | null = useAppSelector(currentAccessToken);
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, [dispatch, accessToken]);
+
+  if (loading || allUserData === null) {
+    return <div>Loading...</div>;
+  }
+
+  const handleButtonClick = () => {
+    navigate("/users");
+  };
+
+  const topTenUsers = allUserData.slice(0, 8);
+
   return (
     <Box>
-        <Typography variant="h5" color="white"><AirlineStopsIcon /> Top Users</Typography>
-      {topDealUsers.map((user) => (
-        <CustomPaper key={user.id}>
+        <Typography variant="h5" color="white"><AirlineStopsIcon /> Total Users: {allUserData.length}</Typography>
+      {topTenUsers.map((user) => (
+        <CustomPaper key={user._id}>
           <AvatarContainer>
-            <CustomAvatar alt={user.username} src={user.image} />
+            <Avatar alt={user.firstName} src={user.image} />
           </AvatarContainer>
           <UserInfoContainer>
-            <CustomTypography variant="subtitle1">{user.username}</CustomTypography>
+            <CustomTypographyBold variant="subtitle1">{user.firstName} {user.lastName}</CustomTypographyBold>
             <CustomTypography variant="body2">{user.email}</CustomTypography>
             <CustomTypography variant="body2">{user.role}</CustomTypography>
           </UserInfoContainer>
         </CustomPaper>
       ))}
+        <CustomButton onClick={handleButtonClick} variant="outlined" endIcon="→">
+          View all
+        </CustomButton>
     </Box>
   );
 };

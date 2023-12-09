@@ -1,49 +1,16 @@
-import React,{ useState } from 'react'
-import "./books.scss"
+import React,{ useEffect, useState } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 import styled from '@emotion/styled';
-import { AddData } from "../../components/addData/AddData";
-import { DataTable } from "../../components/dataTable/DataTable";
-import { GridColDef } from "@mui/x-data-grid";
-import { totalBooks } from '../../constants/books';
 
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  { field: 'image', headerName: 'Image', width: 90,
-    renderCell:(params) => {
-        return <img src={params.row.image || "../../assests/nouser.svg"} alt="no avatar" />
-    }
-},
-  {
-    field: 'isbn',
-    headerName: 'ISBN',
-    width: 100,
-    editable: true,
-    type: 'string',
-  },
-  {
-    field: 'title',
-    headerName: 'Title',
-    width: 150,
-    editable: true,
-    type: 'string',
-  },
-  {
-    field: 'status',
-    headerName: 'Status',
-    width: 110,
-    editable: true,
-    type: 'string',
-  },
-  {
-    field: 'publishedDate',
-    headerName: 'Public Date',
-    width: 200,
-    editable: true,
-    type: 'Date',
-    valueGetter: (params) => new Date().toLocaleString(), // Set to the current date and time
-  },
-];
+import "./books.scss"
+import useAppSelector from '../../hooks/useAppSelector';
+import {  currentBooktotalPages, getAllBooks, setAllBooks } from '../../redux/reducers/booksReducer';
+import useAppDispatch from '../../hooks/useAppDispatch';
+import { BookTable } from '../../components/dataForm/displayData/BookTable';
+import { BookColumns } from '../../constants/bookColumns';
+import { AddOneBook } from '../../components/dataForm/addData/AddOneBook';
+import { currentAccessToken } from '../../redux/reducers/authReducer';
+import { Book } from '../../types/Book';
 
 const CustomBox = styled(Box)({
   marginBottom: 10,
@@ -55,13 +22,36 @@ const CustomButton = styled(Button)({
 });
 
 export const Books = () => {
-  // const handleButtonClick = () => {
-  //   // TODO: Add logic for handling button click, e.g., navigating to another API 
-  //   // API: /api/v1/users
-  //   console.log('Button clicked!');
-  // };
+const { books, loading } = useAppSelector((state) => state.book);
+const totalPages: number = useAppSelector(currentBooktotalPages) ?? 3;
 
   const [open, setOpen] = useState(false)
+
+  const dispatch = useAppDispatch();
+  const accessToken: string | null = useAppSelector(currentAccessToken);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let currentPage = 1;
+      let allBooks: Book[] = [];
+  
+      while (currentPage <= totalPages) {
+        const result = await dispatch(getAllBooks(currentPage));
+  
+        if (getAllBooks.fulfilled.match(result)) {
+          const { books } = result.payload;
+          allBooks = [...allBooks, ...books];
+          currentPage += 1;
+        } else {
+          break; 
+        }
+      }
+      console.log("book is fetching datas")
+      dispatch(setAllBooks(allBooks));
+    };
+  
+    fetchData();
+  }, [dispatch, totalPages]);
 
   return (
     <Box className='products'>
@@ -73,8 +63,10 @@ export const Books = () => {
         </CustomButton>
       </Typography>
       </CustomBox>
-      <DataTable slug='books' columns={columns} rows={totalBooks}/>
-      {open && <AddData slug='books' columns={columns} setOpen={setOpen}/>}
+      {loading ? ("LOADING ... ") : (
+        <BookTable slug='books' columns={BookColumns} rows={books}/>
+      )}
+      {open && <AddOneBook slug='books' accessToken={accessToken} columns={BookColumns} setOpen={setOpen}/>}
     </Box>
   )
 }

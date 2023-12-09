@@ -1,120 +1,143 @@
-import React from 'react';
-import { Home } from './pages/home/Home';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet
-} from "react-router-dom";
+import { Home } from "./pages/home/Home";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import { Users } from './pages/users/Users';
-import { Books } from './pages/books/Books';
-import { Navbar } from './components/navbar/Navbar';
-import { Menu } from './components/menu/Menu';
-import { Footer } from './components/footer/Footer';
-import { Login } from './pages/login/Login';
-import { Profile } from './pages/profile/Profile';
-import { Genres } from './pages/genres/Genres';
-import { BookAuthors } from './pages/bookAuthors/BookAuthors';
-import { BookGenres } from './pages/bookGenres/BookGenres';
-import { User } from './pages/users/User';
-import { Book } from './pages/books/Book';
-import { Authors } from './pages/authors/Authors';
-import { Author } from './pages/authors/Author';
-import { Genre } from './pages/genres/Genre';
-import { BookAuthor } from './pages/bookAuthors/BookAuthor';
-import { BookGenre } from './pages/bookGenres/BookGenre';
-
+import { Users } from "./pages/users/Users";
+import { Books } from "./pages/books/Books";
+import { Login } from "./pages/login/Login";
+import { Profile } from "./pages/profile/Profile";
+import { Genres } from "./pages/genres/Genres";
+import { UserDetails } from "./pages/users/UserDetails";
+import { BookDetails } from "./pages/books/BookDetails";
+import { Authors } from "./pages/authors/Authors";
+import { AuthorDetails } from "./pages/authors/AuthorDetails";
+import { GenreDetails } from "./pages/genres/GenreDetails";
+import { UserLayout } from "./components/layout/UserLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { GuestLayout } from "./components/layout/GuessLayout";
 
 function App() {
-const Layout = () => {
-  return (
-    <div className='main'>
-      <Navbar />
-      <div className="container">
-        <div className="menuContainer">
-        <Menu />
-        </div>
-        <div className="contentContainer">
-          <Outlet />
-        </div>
-      </div>
-      <Footer />
-    </div>
-  )
-}
-
   const router = createBrowserRouter([
     {
       path: "/",
-      element: < Layout />,
+      element: <Outlet />,
       children: [
         {
           path: "/",
-          element: <Home />
+          element: <GuestLayout />,
+          children: [
+            {
+              path: "/login",
+              element: <Login />,
+            },
+          ],
         },
         {
-          path: "/users",
-          element: <Users />
+          path: "/",
+          element: <UserLayout />,
+          children: [
+            {
+              path: "/homepage",
+              element: <ProtectedRoute path="*" element={<Home />} />,
+            },
+            {
+              path: "/users",
+              element: <ProtectedRoute path="*" element={<Users />} />,
+            },
+            {
+              path: "/users/:id",
+              element: <ProtectedRoute path="*" element={<UserDetails />} />,
+            },
+            {
+              path: "/books",
+              element: <ProtectedRoute path="*" element={<Books />} />,
+            },
+            {
+              path: "/books/:isbn",
+              element: <ProtectedRoute path="*" element={<BookDetails />} />,
+            },
+            {
+              path: "/authors",
+              element: <ProtectedRoute path="*" element={<Authors />} />,
+            },
+            {
+              path: "/authors/:id",
+              element: <ProtectedRoute  path="*" element={<AuthorDetails />} />,
+            },
+            {
+              path: "/genres",
+              element: <ProtectedRoute path="*" element={<Genres />} />,
+            },
+            {
+              path: "/genres/:id",
+              element: <ProtectedRoute path="*" element={<GenreDetails />} />,
+            },
+            {
+              path: "/profile",
+              element: <ProtectedRoute path="*" element={<Profile />} />,
+            },
+          ],
         },
-        {
-          path: "/users/:id",
-          element: <User />
-        },
-        {
-          path: "/books",
-          element: <Books />
-        },
-        {
-          path: "/books/:id",
-          element: <Book />
-        },
-        {
-          path: "/authors",
-          element: <Authors />
-        },
-        {
-          path: "/authors/:id",
-          element: <Author />
-        },
-        {
-          path: "/genres",
-          element: <Genres />
-        },
-        {
-          path: "/genres/:id",
-          element: <Genre />
-        },
-        {
-          path: "/books&authors",
-          element: <BookAuthors />
-        },
-        {
-          path: "/books&authors/:id",
-          element: <BookAuthor />
-        },
-        {
-          path: "/books&genres",
-          element: <BookGenres />
-        },
-        {
-          path: "/books&genres/:id",
-          element: <BookGenre />
-        },
-        {
-          path: "/profile",
-          element: <Profile />
-        },
-      ]
-    },{
-      path: "/login",
-          element: <Login />
-    }
+      ],
+    },
   ]);
 
-  
-  return (
-    <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 }
+
+//   const router = createBrowserRouter([
+//     {
+//       path: "/",
+//       element: <UserLayout />,
+//       children: [
+//         {
+//           path: "/homepage",
+//           element: <Home />,
+//         },
+//         {
+//           path: "/users",
+//           element: <Users />,
+//         },
+//         {
+//           path: "/users/:id",
+//           element: <UserDetails />,
+//         },
+//         {
+//           path: "/books",
+//           element: <Books />,
+//         },
+//         {
+//           path: "/books/:isbn",
+//           element: <BookDetails />,
+//         },
+//         {
+//           path: "/authors",
+//           element: <Authors />,
+//         },
+//         {
+//           path: "/authors/:id",
+//           element: <AuthorDetails />,
+//         },
+//         {
+//           path: "/genres",
+//           element: <Genres />,
+//         },
+//         {
+//           path: "/genres/:id",
+//           element: <GenreDetails />,
+//         },
+//         {
+//           path: "/profile",
+//           element: <Profile />,
+//         },
+//       ],
+//     },
+//     {
+//       path: "/login",
+//       element: <Login />,
+//     },
+//   ]);
+
+//   return <RouterProvider router={router} />;
+// }
 
 export default App;

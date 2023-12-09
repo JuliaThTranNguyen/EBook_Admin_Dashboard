@@ -5,12 +5,23 @@ import "./menu.scss"
 import { menu } from "../../constants/menu";
 import styled from "@emotion/styled";
 
+const CustomListItemText = styled(ListItemText)({
+  marginTop: 10,
+  color: 'white',
+  textTransform: 'uppercase',  
+});
+
+const CustomList = styled(List)({
+  marginTop: 30,
+})
+
 const CustomListItem = styled(ListItem)({
-  color: 'white'
+  color: 'white',
+  marginBottom: 40,
 })
 
 const CustomListItemIcon = styled(ListItemIcon)({
-  color: 'white'
+  color: 'white',
 })
 
 export const Menu = () => {
@@ -18,8 +29,8 @@ export const Menu = () => {
     <div className="menu">
       {menu.map((item) => (
         <div className="item" key={item.id}>
-          <ListItemText primary={item.main} />
-          <List>
+          <CustomListItemText primary={item.main} />
+          <CustomList>
             {item.listItems.map((listItem) => (
               <Link to={listItem.url} className="listItem" key={listItem.id}>
                 <CustomListItem>
@@ -30,7 +41,7 @@ export const Menu = () => {
                 </CustomListItem>
               </Link>
             ))}
-          </List>
+          </CustomList>
         </div>
       ))}
     </div>

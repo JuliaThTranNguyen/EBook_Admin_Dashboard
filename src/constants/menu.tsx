@@ -2,12 +2,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import InventoryIcon from '@mui/icons-material/Inventory';
-import ChecklistRtlIcon from '@mui/icons-material/ChecklistRtl';
-import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
-import LogoutIcon from '@mui/icons-material/Logout';
+//import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import CategoryIcon from '@mui/icons-material/Category';
-import RuleIcon from '@mui/icons-material/Rule';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
+//import AttachEmailIcon from '@mui/icons-material/AttachEmail';
 
 export const menu = [
     {
@@ -17,7 +15,7 @@ export const menu = [
         {
           id: 1,
           title: "Homepage",
-          url: "/",
+          url: "/homepage",
           icon: HomeIcon,
         },
         {
@@ -56,43 +54,31 @@ export const menu = [
           url: "/genres",
           icon: CategoryIcon,
         },
-        {
-          id: 5,
-          title: "BookAuthors",
-          url: "/books&authors",
-          icon: ChecklistRtlIcon,
-        },
-        {
-          id: 6,
-          title: "BookGenres",
-          url: "/books&genres",
-          icon: RuleIcon,
-        },
       ],
     },
-    {
-      id: 4,
-      main: "Maintenance",
-      listItems: [
-        {
-          id: 1,
-          title: "Settings",
-          url: "/",
-          icon: SettingsSuggestIcon,
-        }
-      ],
-    },
-    {
-      id: 5,
-      main: "Logout",
-      listItems: [
-        {
-          id: 2,
-          title: "Logout",
-          url: "/",
-          icon: LogoutIcon,
-        },
-      ],
-    },
+    // {
+    //   id: 4,
+    //   main: "Maintenance",
+    //   listItems: [
+    //     {
+    //       id: 1,
+    //       title: "Settings",
+    //       url: "/settings",
+    //       icon: SettingsSuggestIcon,
+    //     }
+    //   ],
+    // },
+    // {
+    //   id: 5,
+    //   main: "Need Help ?",
+    //   listItems: [
+    //     {
+    //       id: 1,
+    //       title: "Contact us",
+    //       url: "/contact",
+    //       icon: AttachEmailIcon,
+    //     }
+    //   ],
+    // },
   ];
   
