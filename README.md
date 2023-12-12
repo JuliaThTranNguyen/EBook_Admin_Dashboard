@@ -53,3 +53,8 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 ## VIsit the LIVE DEMO: [DEMO](https://fs16-front-end-fs.vercel.app/)
+
+## Default values for testing: 
+### LOGIN CREDENTIALS FOR ADMIN
+- email: trhien541@gmail.com
+- password: password
