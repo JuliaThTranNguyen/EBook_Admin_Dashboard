@@ -1,7 +1,6 @@
 import { Author } from "./Author";
 import { Book } from "./Book";
 import { Genre } from "./Genre";
-import { User } from "./User";
 
 export interface BookApiResponse {
   status: string;

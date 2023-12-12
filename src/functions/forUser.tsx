@@ -7,7 +7,7 @@ export const updateUser = async (
 ) => {
   try {
     const response = await axios.put(
-      `https://library.egorushque.space/api/v1/users/${id}`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/users/${id}`,
       data,
       {
         headers: {
@@ -29,7 +29,7 @@ export const updateRole = async (
 ) => {
   try {
     const response = await axios.put(
-      `https://library.egorushque.space/api/v1/users/${id}/role`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/users/${id}/role`,
       data,
       {
         headers: {
@@ -50,7 +50,7 @@ export const addUser = async (
 ) => {
   try {
     const response = await axios.post(
-      `https://library.egorushque.space/api/v1/auth/signup`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/auth/signup`,
       data,
       {
         headers: {
@@ -58,7 +58,6 @@ export const addUser = async (
         },
       }
     );
-    console.log("Creating User:", data);
     return response.data.data;
   } catch (error) {
     console.error('Error creating new user:', error);

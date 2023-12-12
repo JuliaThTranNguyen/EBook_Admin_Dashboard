@@ -29,7 +29,7 @@ export const UserLogin = createAsyncThunk(
   async (payload: LoginPayload, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://library.egorushque.space/api/v1/auth/login",
+        "https://nodejs-server-thjulia.vercel.app/api/v1/auth/login",
         payload
       );
       toast.success("Log in successfully");
@@ -54,7 +54,7 @@ export const getUserProfile = createAsyncThunk<User, void>(
 
     try {
       const response = await axios.get(
-        "https://library.egorushque.space/api/v1/auth/me",
+        "https://nodejs-server-thjulia.vercel.app/api/v1/auth/me",
         {
           headers: {
             Authorization: `Bearer ${access_token}`,
@@ -83,7 +83,7 @@ export const getAllUsers = createAsyncThunk(
 
     try {
       const response = await axios.get(
-        "https://library.egorushque.space/api/v1/users",
+        "https://nodejs-server-thjulia.vercel.app/api/v1/users",
         {
           headers: {
             Authorization: `Bearer ${access_token}`,

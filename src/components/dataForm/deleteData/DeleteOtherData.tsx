@@ -25,7 +25,6 @@ export const DeleteOtherDialog = ({
   const handleDelete = async () => {
     try {
       await deletebyId( id, accessToken, slug); 
-      console.log('From other dialog.Item deleted successfully!');
       onClose();
     } catch (error) {
       console.error('Error deleting user:', error);

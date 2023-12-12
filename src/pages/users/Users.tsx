@@ -28,7 +28,6 @@ export const Users = () => {
 
   useEffect(() => {
     dispatch(getAllUsers());
-    console.log("user is fetching datas")
   }, [dispatch, accessToken]);
 
   if (!accessToken) {

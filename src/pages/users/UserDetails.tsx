@@ -70,7 +70,7 @@ export const UserDetails = () => {
 
     try {
       const response = await axios.get(
-        `https://library.egorushque.space/api/v1/users/${id}`,
+        `https://nodejs-server-thjulia.vercel.app/api/v1/users/${id}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -93,7 +93,6 @@ export const UserDetails = () => {
   const handleEditSuccess = async () => {
     fetchOneUserData();
   };
-  console.log("Set User Data ", userData);
 
   /*HANDLE LOADING DATA ... */
   if (loading || userData === null) {

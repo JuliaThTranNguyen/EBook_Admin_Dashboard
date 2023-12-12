@@ -7,7 +7,7 @@ export const updateGenre = async (
 ) => {
   try {
     const response = await axios.put(
-      `https://library.egorushque.space/api/v1/genres/${id}`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/genres/${id}`,
       data,
       {
         headers: {
@@ -28,7 +28,7 @@ export const addGenre = async (
 ) => {
   try {
     const response = await axios.post(
-      `https://library.egorushque.space/api/v1/genres`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/genres`,
       data,
       {
         headers: {
@@ -36,7 +36,6 @@ export const addGenre = async (
         },
       }
     );
-    console.log("Creating Genre:", data);
     return response.data.data;
   } catch (error) {
     console.error('Error creating new genre:', error);

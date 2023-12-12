@@ -7,7 +7,7 @@ export const deletebyId = async (
   ) => {
     try {
       const response = await axios.delete(
-        `https://library.egorushque.space/api/v1/${slug}/${id}`,
+        `https://nodejs-server-thjulia.vercel.app/api/v1/${slug}/${id}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

@@ -36,43 +36,43 @@ function App() {
           element: <UserLayout />,
           children: [
             {
-              path: "/homepage",
-              element: <ProtectedRoute path="*" element={<Home />} />,
+              path: "/*",
+              element: <ProtectedRoute path="homepage" element={<Home />} />,
             },
             {
-              path: "/users",
+              path: "/users/*",
               element: <ProtectedRoute path="*" element={<Users />} />,
             },
             {
-              path: "/users/:id",
+              path: "/users/:id/*",
               element: <ProtectedRoute path="*" element={<UserDetails />} />,
             },
             {
-              path: "/books",
+              path: "/books/*",
               element: <ProtectedRoute path="*" element={<Books />} />,
             },
             {
-              path: "/books/:isbn",
+              path: "/books/:isbn/*",
               element: <ProtectedRoute path="*" element={<BookDetails />} />,
             },
             {
-              path: "/authors",
+              path: "/authors/*",
               element: <ProtectedRoute path="*" element={<Authors />} />,
             },
             {
-              path: "/authors/:id",
+              path: "/authors/:id/*",
               element: <ProtectedRoute  path="*" element={<AuthorDetails />} />,
             },
             {
-              path: "/genres",
+              path: "/genres/*",
               element: <ProtectedRoute path="*" element={<Genres />} />,
             },
             {
-              path: "/genres/:id",
+              path: "/genres/:id/*",
               element: <ProtectedRoute path="*" element={<GenreDetails />} />,
             },
             {
-              path: "/profile",
+              path: "/profile/*",
               element: <ProtectedRoute path="*" element={<Profile />} />,
             },
           ],

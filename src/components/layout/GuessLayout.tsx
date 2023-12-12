@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import styled from "@emotion/styled";
 import { Footer } from "../footer/Footer";
+import { Box } from "@mui/material";
 
 const LoginPromptContainer = styled(Paper)`
   padding: 20px;
@@ -45,9 +46,11 @@ const GuestLayoutContainer = styled.div`
 
 export const GuestLayout: React.FC = () => (
   <GuestLayoutContainer className="main">
+    <Box>
     <h1>Welcome to the Guest Layout</h1>
     <LoginPrompt />
     <Outlet />
     <Footer />
+    </Box>
   </GuestLayoutContainer>
 );

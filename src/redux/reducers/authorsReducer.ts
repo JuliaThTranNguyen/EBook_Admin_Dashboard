@@ -13,7 +13,7 @@ export const getAllAuthors = createAsyncThunk(
   async (page: number, { signal, rejectWithValue }) => {
     try {
       const response = await fetch(
-        `https://library.egorushque.space/api/v1/authors?page=${page}`,
+        `https://nodejs-server-thjulia.vercel.app/api/v1/authors?page=${page}`,
         {
           signal,
         }

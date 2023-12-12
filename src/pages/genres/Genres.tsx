@@ -47,7 +47,6 @@ export const Genres = () => {
 
       dispatch(setAllGenres(allGenres));
     };
-    console.log("genre is fetching datas")
     fetchGenreData();
   }, [dispatch,totalGenrePages]);
 

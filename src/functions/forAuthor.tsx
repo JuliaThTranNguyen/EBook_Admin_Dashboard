@@ -7,7 +7,7 @@ export const updateAuthor = async (
 ) => {
   try {
     const response = await axios.put(
-      `https://library.egorushque.space/api/v1/authors/${id}`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/${id}`,
       data,
       {
         headers: {
@@ -28,7 +28,7 @@ export const addAuthor = async (
 ) => {
   try {
     const response = await axios.post(
-      `https://library.egorushque.space/api/v1/authors`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/authors`,
       data,
       {
         headers: {
@@ -36,7 +36,6 @@ export const addAuthor = async (
         },
       }
     );
-    console.log("Creating Author:", data);
     return response.data.data;
   } catch (error) {
     console.error('Error creating new author:', error);

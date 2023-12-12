@@ -80,7 +80,7 @@ export const BookDetails = () => {
   const fetchOneBookData = async () => {
     try {
       const response = await axios.get(
-        `https://library.egorushque.space/api/v1/books/${isbn}`
+        `https://nodejs-server-thjulia.vercel.app/api/v1/books/${isbn}`
       );
 
       setBookData(response.data.data);
@@ -89,7 +89,7 @@ export const BookDetails = () => {
       const borrowerId = response.data.data?.borrowerId;
       if (borrowerId) {
         const userResponse = await axios.get(
-          `https://library.egorushque.space/api/v1/users/${borrowerId}`,
+          `https://nodejs-server-thjulia.vercel.app/api/v1/users/${borrowerId}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -105,7 +105,7 @@ export const BookDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://library.egorushque.space/api/v1/books/${isbn}`)
+      .get(`https://nodejs-server-thjulia.vercel.app/api/v1/books/${isbn}`)
       .then((response) => {
         setBookData(response.data.data);
       });

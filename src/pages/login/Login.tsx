@@ -39,7 +39,6 @@ export const Login = () => {
       navigate("/profile");
     });
   };
-console.log("login credentials: ", email, password)
 
   return (
     <LoginForm className='main'>

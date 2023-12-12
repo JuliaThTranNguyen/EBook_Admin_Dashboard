@@ -58,7 +58,7 @@ export const AuthorDetails = () => {
   const fetchOneAuthorData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://library.egorushque.space/api/v1/authors/${id}`
+        `https://nodejs-server-thjulia.vercel.app/api/v1/${id}`
       );
 
       setAuthorData(response.data.data);

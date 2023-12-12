@@ -89,12 +89,10 @@ export const AddOneGenre = (props: Props) => {
 
   /*CREATE A NEW AUTHOR*/
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("Submit button clicked");
     e.preventDefault();
 
     try {
       await addGenre(createdData, props.accessToken);
-      console.log("Form Data:", createdData);
       // Updated data after creating the book
       const result = await dispatch(getAllGenres(1));
       if (getAllGenres.fulfilled.match(result)) {

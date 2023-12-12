@@ -7,7 +7,7 @@ export const updateBook = async (
 ) => {
   try {
     const response = await axios.put(
-      `https://library.egorushque.space/api/v1/books/${isbn}`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/books/${isbn}`,
       data,
       {
         headers: {
@@ -28,7 +28,7 @@ export const addBook = async (
 ) => {
   try {
     const response = await axios.post(
-      `https://library.egorushque.space/api/v1/books`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/books`,
       data,
       {
         headers: {
@@ -49,7 +49,7 @@ export const deleteOneBook = async (
 ) => {
   try {
     const response = await axios.delete(
-      `https://library.egorushque.space/api/v1/books/${isbn}`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/books/${isbn}`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,

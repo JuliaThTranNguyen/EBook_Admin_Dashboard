@@ -59,7 +59,7 @@ export const GenreDetails = () => {
   const fetchOneGenreData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://library.egorushque.space/api/v1/genres/${id}`
+        `https://nodejs-server-thjulia.vercel.app/api/v1/genres/${id}`
       );
 
       setGenreData(response.data.data);

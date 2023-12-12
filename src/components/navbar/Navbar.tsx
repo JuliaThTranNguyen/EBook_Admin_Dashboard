@@ -10,11 +10,6 @@ import { UserLogout, currentAccessToken, currentUser, getUserProfile } from "../
 import useAppSelector from "../../hooks/useAppSelector";
 import { useEffect } from "react";
 
-// type NavbarProps = {
-//   user: User | null;
-//   accessToken: string | null;
-// };
-
 export const Navbar = () => {
   const user: User | null = useAppSelector(currentUser);
   const accessToken: string | null = useAppSelector(currentAccessToken);

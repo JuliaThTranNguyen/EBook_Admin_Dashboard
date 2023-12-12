@@ -46,7 +46,6 @@ const totalPages: number = useAppSelector(currentBooktotalPages) ?? 3;
           break; 
         }
       }
-      console.log("book is fetching datas")
       dispatch(setAllBooks(allBooks));
     };
   

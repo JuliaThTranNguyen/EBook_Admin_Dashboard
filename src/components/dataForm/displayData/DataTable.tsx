@@ -48,11 +48,9 @@ export const DataTable = (props: Props) => {
       }
       setSelectedId(_id);
       setDeleteDialogOpen(true);
-      console.log("Item deleted successfully!");
     } catch (error) {
       console.error("Error deleting item:", error);
     }
-    console.log("this button has been clicked, ", _id);
   };
 
   const handleDeleteDialogClose = async () => {
