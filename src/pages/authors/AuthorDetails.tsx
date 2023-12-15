@@ -63,6 +63,7 @@ export const AuthorDetails = () => {
 
       setAuthorData(response.data.data);
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error("Error fetching user details:", error);
     }
     

@@ -73,6 +73,7 @@ export const ProfileForm = () => {
   const fetchUserProfile = useCallback(async () => {
     try {
       if (!accessToken) {
+        alert("Oops! There might be something wrong. Please refresh and try again.")
         console.error("Token is missing!");
         return;
       }
@@ -82,6 +83,7 @@ export const ProfileForm = () => {
         setUserData(response.payload);
       }
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error("Error fetching user details:", error);
     }
   }, [dispatch, accessToken]);

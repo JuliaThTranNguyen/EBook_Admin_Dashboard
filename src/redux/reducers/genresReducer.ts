@@ -30,6 +30,7 @@ export const getAllGenres = createAsyncThunk(
         pagination: data.data.pagination,
       };
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error("Error fetching genres:", error);
       return rejectWithValue("Error fetching genres");
     }

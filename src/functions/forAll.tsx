@@ -16,6 +16,7 @@ export const deletebyId = async (
       );
       return response.data.data;
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error('Error deleting a book:', error);
       throw error;
     }
@@ -37,6 +38,7 @@ export const deletebyId = async (
       );
       return response.data.data;
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error('Error deleting a book:', error);
       throw error;
     }

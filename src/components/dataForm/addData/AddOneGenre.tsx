@@ -123,6 +123,7 @@ export const AddOneGenre = (props: Props) => {
 
       props.setOpen(false);
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error("Error creating genre:", error);
     }
   };

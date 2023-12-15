@@ -7,7 +7,7 @@ export const updateAuthor = async (
 ) => {
   try {
     const response = await axios.put(
-      `https://nodejs-server-thjulia.vercel.app/api/v1/${id}`,
+      `https://nodejs-server-thjulia.vercel.app/api/v1/authors/${id}`,
       data,
       {
         headers: {
@@ -17,6 +17,7 @@ export const updateAuthor = async (
     );
     return response.data.data;
   } catch (error) {
+    alert("Oops! There might be something wrong. Please refresh and try again.")
     console.error('Error updating author:', error);
     throw error;
   }
@@ -38,6 +39,7 @@ export const addAuthor = async (
     );
     return response.data.data;
   } catch (error) {
+    alert("Oops! There might be something wrong. Please refresh and try again.")
     console.error('Error creating new author:', error);
     throw error;
   }

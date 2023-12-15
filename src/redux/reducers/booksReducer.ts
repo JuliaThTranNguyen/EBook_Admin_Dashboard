@@ -25,6 +25,7 @@ export const getAllBooks = createAsyncThunk(
       );
 
       if (!response.ok) {
+        alert("Oops! There might be something wrong. Please refresh and try again.")
         throw new Error(`Failed to fetch books. Status: ${response.status}`);
       }
 
@@ -35,6 +36,7 @@ export const getAllBooks = createAsyncThunk(
         pagination: data.data.pagination,
       };
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error("Error fetching books:", error);
       return rejectWithValue("Error fetching books");
     }

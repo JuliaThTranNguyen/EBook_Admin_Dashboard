@@ -39,6 +39,7 @@ export const updateRole = async (
     );
     return response.data.data;
   } catch (error) {
+    alert("Oops! There might be something wrong. Please refresh and try again.")
     console.error('Error updating role:', error);
     throw error;
   }
@@ -60,6 +61,7 @@ export const addUser = async (
     );
     return response.data.data;
   } catch (error) {
+    alert("Oops! There might be something wrong. Please refresh and try again.")
     console.error('Error creating new user:', error);
     throw error;
   }

@@ -32,10 +32,11 @@ export const UserLogin = createAsyncThunk(
         "https://nodejs-server-thjulia.vercel.app/api/v1/auth/login",
         payload
       );
-      toast.success("Log in successfully");
+      alert("Log in successfully");
       return response.data.data;
     } catch (error) {
       const axiosError = error as AxiosError;
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       return rejectWithValue(axiosError.response?.data || "An error occurred");
     }
   }
@@ -63,6 +64,7 @@ export const getUserProfile = createAsyncThunk<User, void>(
       );
       return response.data.data;
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error("Error fetching user profile:", error);
       const axiosError = error as AxiosError;
       return thunkAPI.rejectWithValue(axiosError.response?.data);

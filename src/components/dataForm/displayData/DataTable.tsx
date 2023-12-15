@@ -50,6 +50,7 @@ export const DataTable = (props: Props) => {
       setSelectedId(_id);
       setDeleteDialogOpen(true);
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error("Error deleting item:", error);
     }
   };

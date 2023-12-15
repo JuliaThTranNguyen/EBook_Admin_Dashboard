@@ -20,6 +20,7 @@ export const getAllAuthors = createAsyncThunk(
       );
 
       if (!response.ok) {
+        alert("Oops! There might be something wrong. Please refresh and try again.")
         throw new Error(`Failed to fetch authors. Status: ${response.status}`);
       }
 
@@ -30,6 +31,7 @@ export const getAllAuthors = createAsyncThunk(
         pagination: data.data.pagination,
       };
     } catch (error) {
+      alert("Oops! There might be something wrong. Please refresh and try again.")
       console.error("Error fetching authors:", error);
       return rejectWithValue("Error fetching authors");
     }
