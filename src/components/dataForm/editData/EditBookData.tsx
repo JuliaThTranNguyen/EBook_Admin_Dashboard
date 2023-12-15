@@ -208,7 +208,7 @@ export const EditBookData = (props: Props) => {
           X
         </CustomCloseButton>
         <Typography variant="h4" color="white">
-          Edit {props.slug}
+          Edit book 
         </Typography>
         <CustomForm onSubmit={handleSubmit}>
           {props.columns
