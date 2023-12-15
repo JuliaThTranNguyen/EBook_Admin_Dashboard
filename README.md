@@ -93,3 +93,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 ![image](https://github.com/JuliaThTranNguyen/fs16-front-end-FS/assets/49017322/1767cbe9-aa46-4a85-8153-2cdab839dd85)
 
 ![image](https://github.com/JuliaThTranNguyen/fs16-front-end-FS/assets/49017322/db818003-28de-4cdc-87b8-bf7a5b711503)
+
+### Protected Access Rights
+![image](https://github.com/JuliaThTranNguyen/fs16-front-end-FS/assets/49017322/dded324d-3056-4e61-8d5b-9be098a7743f)
