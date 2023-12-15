@@ -24,12 +24,6 @@ function App() {
         {
           path: "/",
           element: <GuestLayout />,
-          children: [
-            {
-              path: "/login",
-              element: <Login />,
-            },
-          ],
         },
         {
           path: "/",
@@ -61,7 +55,7 @@ function App() {
             },
             {
               path: "/authors/:id/*",
-              element: <ProtectedRoute  path="*" element={<AuthorDetails />} />,
+              element: <ProtectedRoute path="*" element={<AuthorDetails />} />,
             },
             {
               path: "/genres/*",
@@ -77,67 +71,15 @@ function App() {
             },
           ],
         },
+        {
+          path: "/login",
+          element: <Login />,
+        },
       ],
     },
   ]);
 
   return <RouterProvider router={router} />;
 }
-
-//   const router = createBrowserRouter([
-//     {
-//       path: "/",
-//       element: <UserLayout />,
-//       children: [
-//         {
-//           path: "/homepage",
-//           element: <Home />,
-//         },
-//         {
-//           path: "/users",
-//           element: <Users />,
-//         },
-//         {
-//           path: "/users/:id",
-//           element: <UserDetails />,
-//         },
-//         {
-//           path: "/books",
-//           element: <Books />,
-//         },
-//         {
-//           path: "/books/:isbn",
-//           element: <BookDetails />,
-//         },
-//         {
-//           path: "/authors",
-//           element: <Authors />,
-//         },
-//         {
-//           path: "/authors/:id",
-//           element: <AuthorDetails />,
-//         },
-//         {
-//           path: "/genres",
-//           element: <Genres />,
-//         },
-//         {
-//           path: "/genres/:id",
-//           element: <GenreDetails />,
-//         },
-//         {
-//           path: "/profile",
-//           element: <Profile />,
-//         },
-//       ],
-//     },
-//     {
-//       path: "/login",
-//       element: <Login />,
-//     },
-//   ]);
-
-//   return <RouterProvider router={router} />;
-// }
 
 export default App;

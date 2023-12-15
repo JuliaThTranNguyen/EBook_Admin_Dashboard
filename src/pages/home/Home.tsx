@@ -8,7 +8,7 @@ import { BookBox } from "../../components/chartBox/BookBox";
 const MainBox = styled(Box)({
   display: "grid",
   gap: "20px",
-  gridTemplateColumns: "repeat(3, 1fr)",
+  gridTemplateColumns: "repeat(2, 1fr)",
   gridAutoRows: "minmax(180px, auto)",
     gridAutoFlow: "dense",
 });
@@ -25,8 +25,8 @@ const Box2 = styled(Box)({
   padding: 20,
   borderRadius: 10,
   border: "1px solid #425270",
-  gridColumn: "span 2",
-  gridRow: "span 2",
+  gridColumn: "span 1",
+  gridRow: "span 1",
 });
 
 export const Home = () => {

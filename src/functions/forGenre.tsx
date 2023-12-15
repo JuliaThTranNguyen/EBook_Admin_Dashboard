@@ -42,3 +42,4 @@ export const addGenre = async (
     throw error;
   }
 };
+

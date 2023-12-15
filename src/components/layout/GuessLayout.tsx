@@ -14,7 +14,7 @@ const LoginPromptContainer = styled(Paper)`
   text-align: center;
 `;
 
-const LoginPrompt = () => {
+export const LoginPrompt = () => {
   return (
     <LoginPromptContainer elevation={3}>
       <Typography variant="h5" gutterBottom>
@@ -42,15 +42,23 @@ const GuestLayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh; // Ensure the content takes at least the full height of the viewport
 `;
+
+const StyledBox = styled(Box)`
+  max-height: 1000px;
+`;
+
+
 
 export const GuestLayout: React.FC = () => (
   <GuestLayoutContainer className="main">
-    <Box>
-    <h1>Welcome to the Guest Layout</h1>
+    <StyledBox>
+    <Typography variant="h4">Welcome to the Guest Layout</Typography>
     <LoginPrompt />
     <Outlet />
     <Footer />
-    </Box>
+    </StyledBox>
   </GuestLayoutContainer>
 );

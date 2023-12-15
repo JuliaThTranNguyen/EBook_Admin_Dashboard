@@ -58,7 +58,7 @@ export const AuthorDetails = () => {
   const fetchOneAuthorData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://nodejs-server-thjulia.vercel.app/api/v1/${id}`
+        `https://nodejs-server-thjulia.vercel.app/api/v1/authors/${id}`
       );
 
       setAuthorData(response.data.data);

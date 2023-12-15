@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Avatar, Box, Button, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-
 import useAppSelector from "../../hooks/useAppSelector";
 import useAppDispatch from "../../hooks/useAppDispatch";
 import { Book } from "../../types/Book";
@@ -97,19 +96,21 @@ export const BookBox = () => {
           <LibraryBooksIcon /> Total Books: {books.length}
         </Typography>
       </Box>
-      {displayedBooks.map((book) => (
-        <CustomPaper key={book._id}>
-          <AvatarContainer>
-            <Avatar alt={book.title} src={book.image} />
-          </AvatarContainer>
-          <UserInfoContainer>
-            <CustomTypographyBold variant="subtitle1">
-              {book.title}{" "}
-            </CustomTypographyBold>
-            <CustomTypography variant="body2">{book.status}</CustomTypography>
-          </UserInfoContainer>
-        </CustomPaper>
-      ))}
+      <Box>
+        {displayedBooks.map((book) => (
+          <CustomPaper key={book._id}>
+            <AvatarContainer>
+              <Avatar alt={book.title} src={book.image} />
+            </AvatarContainer>
+            <UserInfoContainer>
+              <CustomTypographyBold variant="subtitle1">
+                {book.title}{" "}
+              </CustomTypographyBold>
+              <CustomTypography variant="body2">{book.status}</CustomTypography>
+            </UserInfoContainer>
+          </CustomPaper>
+        ))}
+      </Box>
       <CustomButton onClick={handleButtonClick} variant="outlined" endIcon="→">
         View all
       </CustomButton>

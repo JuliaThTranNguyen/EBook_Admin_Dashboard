@@ -8,6 +8,24 @@ import './login.scss'
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { UserLogin } from '../../redux/reducers/authReducer';
 
+const LayoutContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; // Ensure the content takes at least the full height of the viewport
+`;
+
+const StyledBox = styled(Box)`
+  max-height: 1000px;
+`;
+
+const StyledTypo = styled(Typography)`
+  text-align: center;
+  margin-bottom: 20px; // Add margin to create space between the Typography components
+`;
+
+
 const LoginForm = styled(Box)`
   display: flex;
   flex-direction: column;
@@ -41,7 +59,15 @@ export const Login = () => {
   };
 
   return (
-    <LoginForm className='main'>
+<LayoutContainer className='main'>
+  <StyledBox>
+
+<StyledBox>
+<StyledTypo variant="h4">Welcome Login Form </StyledTypo>
+  <StyledTypo variant="h6" color={'grey'}>You must be an Admin to access this content.</StyledTypo>
+
+</StyledBox>
+  <LoginForm >
       <Paper elevation={3}>
         <Box p={3} component="form" onSubmit={handleSubmit}>
           <Typography variant="h5" gutterBottom>
@@ -63,6 +89,9 @@ export const Login = () => {
         </Box>
       </Paper>
     </LoginForm>
+  </StyledBox>
+
+</LayoutContainer>
   );
 };
 
